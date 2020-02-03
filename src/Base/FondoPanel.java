@@ -7,6 +7,8 @@ import java.awt.BorderLayout;
 import java.io.*;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+
+import Tabla.Paginador;
 import Tabla.Tabla;
 
 /**
@@ -29,6 +31,7 @@ public class FondoPanel extends JPanel {
     	Tabla tabla =new Tabla();
     	tabla.getScrollTabla().setViewportView(Tabla.getInstance());
     	this.add(tabla.getScrollTabla());
+    	this.add(Paginador.getInstance(),BorderLayout.SOUTH);
 	}
 	/**
 	 * 

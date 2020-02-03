@@ -22,11 +22,13 @@ public class Persona {
 	private int edad;
 	private String direccion;
 	private boolean estado;
+	private static int cont=0;
 	/**
 	 * @Constructor 
 	 */
 	public Persona() {
 		// TODO Auto-generated constructor stub
+		setCont(getCont() + 1);
 		this.nombre=" ";
 		this.apellido=" ";
 		this.direccion="";
@@ -53,6 +55,12 @@ public class Persona {
 			 instance = new ArrayList<Persona>();
 		 }
 		 return instance;
+	 }
+	 /**
+	  * @param instance the instance to set
+	  */
+	 public static void setInstance(ArrayList<Persona> instance) {
+		 Persona.instance = instance;
 	 }
 	/**
 	 * @return the nombre
@@ -121,5 +129,11 @@ public class Persona {
 	public String toString() {
 		return "Persona [nombre=" + nombre + ", apellido=" + apellido + ", edad=" + edad + ", direccion=" + direccion
 				+ ", estado=" + estado + "]";
+	}
+	public static int getCont() {
+		return cont;
+	}
+	public static void setCont(int cont) {
+		Persona.cont = cont;
 	}
 }

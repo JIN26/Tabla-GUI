@@ -3,6 +3,8 @@
  */
 package Tabla;
 
+import java.awt.event.MouseEvent;
+
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.ScrollPaneConstants;
@@ -23,14 +25,22 @@ public class Tabla{
 	 */
 	public Tabla(){
 		// TODO Auto-generated constructor stub
-		
 		TableModel modelo = new Modelo();
 		instance = new JTable(modelo);  
-		//instance.setDefaultRenderer(columnClass, renderer);
+		instance.setDefaultRenderer(instance.getColumnClass(0), new Render());
 		scrollTabla = new JScrollPane();
 		scrollTabla.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		scrollTabla.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
 		scrollTabla.setSize(100, 200);
+		
+		instance .addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mousePressed(MouseEvent me) {
+		       int row = instance.getSelectedRow();
+		       if (me.getClickCount() == 2) {
+		    	   System.out.println(instance.getValueAt(row, 0).toString());
+		       }
+		    }
+		});
 	}
 	public static JTable getInstance() {
 		return instance;
