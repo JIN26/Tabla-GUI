@@ -7,7 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import Base.Base;
-import Menu.Menu;
+import DlgInicio.DlgInicio;
 /**
  * @author CYBER-SERVER
  *
@@ -36,10 +36,12 @@ public class Evento  implements ActionListener{
 	 * @param e
 	 */
 	public void actionPerformed(ActionEvent e) {
-		if(e.getSource()==Menu.getInstance().getNuevo()) {
-			//new DlgPersona(base).setVisible(true);
-			return;
-		}/*
+		if(e.getSource()==DlgInicio.getInstance().getBut1()) {
+			DlgInicio.getInstance().setVisible(false);
+			Base.getInstance().setVisible(true);
+			
+		}
+		/*
 		if(e.getSource() == base.getListar()){
 			base.getModeloTabla().setRowCount(0);
 			base.imprimirLista();

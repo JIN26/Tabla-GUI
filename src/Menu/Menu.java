@@ -6,7 +6,6 @@ package Menu;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import Evento.Evento;
 
 /**
  * @author CYBER-SERVER
@@ -19,23 +18,25 @@ public class Menu extends JMenuBar{
 	 * 
 	 */
 	private JMenu archivo;
-	private JMenuItem nuevo;
-	private JMenuItem listar;
+	private JMenuItem empleado;
+	private JMenuItem cliente;
+	private JMenuItem salir;
 	/**
 	 * 
 	 */
 	public Menu() {
-		// TODO Auto-generated constructor stub
 		archivo = new JMenu("Archivo");
-		nuevo = new JMenuItem("Nuevo");
-		listar = new JMenuItem("Listar");
-    	
+		empleado = new JMenuItem("Empleado");
+		cliente = new JMenuItem("Cliente");
+		salir = new JMenuItem("Salir");
+		
 		this.add(archivo);
-    	archivo.add(nuevo);
-    	archivo.add(listar);
+    	archivo.add(empleado);
+    	archivo.add(cliente);
+    	archivo.add(salir);
     	
-    	nuevo.addActionListener( new Evento());
-    	listar.addActionListener(new Evento());
+    	//nuevo.addActionListener( new Evento());
+    	//listar.addActionListener(new Evento());
 	}
 	/**
 	 * 
@@ -60,28 +61,45 @@ public class Menu extends JMenuBar{
 		this.archivo = archivo;
 	}
 	/**
-	 * @return the nuevo
+	 * @return the empleado
 	 */
-	public JMenuItem getNuevo() {
-		return nuevo;
+	public JMenuItem getEmpleado() {
+		return empleado;
 	}
 	/**
-	 * @param nuevo the nuevo to set
+	 * @param empleado the empleado to set
 	 */
-	public void setNuevo(JMenuItem nuevo) {
-		this.nuevo = nuevo;
+	public void setEmpleado(JMenuItem empleado) {
+		this.empleado = empleado;
 	}
 	/**
-	 * @return the listar
+	 * @return the cliente
 	 */
-	public JMenuItem getListar() {
-		return listar;
+	public JMenuItem getCliente() {
+		return cliente;
 	}
 	/**
-	 * @param listar the listar to set
+	 * @param cliente the cliente to set
 	 */
-	public void setListar(JMenuItem listar) {
-		this.listar = listar;
+	public void setCliente(JMenuItem cliente) {
+		this.cliente = cliente;
 	}
-
+	/**
+	 * @return the salir
+	 */
+	public JMenuItem getSalir() {
+		return salir;
+	}
+	/**
+	 * @param salir the salir to set
+	 */
+	public void setSalir(JMenuItem salir) {
+		this.salir = salir;
+	}
+	/**
+	 * @param instance the instance to set
+	 */
+	public static void setInstance(Menu instance) {
+		Menu.instance = instance;
+	}
 }

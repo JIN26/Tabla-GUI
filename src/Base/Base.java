@@ -32,7 +32,7 @@ public class Base extends JFrame{
 		//this.setUndecorated(true);
         this.pack();
         this.setSize(winWidth,winHeight);
-        //setResizable(false);     
+        setResizable(false);     
         setLocationRelativeTo(null);
 	}
 	/**

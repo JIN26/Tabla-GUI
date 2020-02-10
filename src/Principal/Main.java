@@ -2,7 +2,7 @@
  * 
  */
 package Principal;
-import Base.Base;
+import DlgInicio.DlgInicio;
 /**
  * @author CYBER-SERVER
  *
@@ -14,7 +14,7 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Base.getInstance().setVisible(true);;
+		DlgInicio.getInstance().setVisible(true);
 	}
 
 }

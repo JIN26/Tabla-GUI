@@ -13,7 +13,6 @@ import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
-import Persona.Persona;
 
 public class PaginadorDeTabla {
     
@@ -178,11 +177,11 @@ public class PaginadorDeTabla {
     
     
     private void paginar() {
-        int startIndex = (paginaActual - 1) * filasPermitidasPorDefecto;
-        int endIndex = startIndex + filasPermitidasPorDefecto;
-        if (endIndex > Persona.getCont()){
+        //int startIndex = (paginaActual - 1) * filasPermitidasPorDefecto;
+        //int endIndex = startIndex + filasPermitidasPorDefecto;
+        /*if (endIndex > Persona.getCont()){
             endIndex =Persona.getCont();
-        }
+        }*/
         Modelo.getInstance().fireTableDataChanged();
     }
     
