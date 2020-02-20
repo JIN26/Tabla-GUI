@@ -24,10 +24,15 @@ import Evento.Evento;
 @SuppressWarnings("serial")
 public class DlgInicio extends JDialog {
 	private static DlgInicio instance = null;
+	private JPanel centro;
 	private JTextField tex1;
 	private JTextField tex2;
+	private JLabel tex3;
 	private JButton but1;
 	private JButton but2;
+	/**
+	 * 
+	 */
 	/**
 	 * 
 	 */
@@ -37,7 +42,7 @@ public class DlgInicio extends JDialog {
 		this.setLocationRelativeTo(null);
 		this.setTitle("Crear Empresa");
 		
-		JPanel centro = new JPanel();
+		centro = new JPanel();
 		tex1 = new JTextField();
 		tex1.setColumns(10);
 		centro.add(new JLabel("Nombre: "));
@@ -47,6 +52,9 @@ public class DlgInicio extends JDialog {
 		tex2.setColumns(3);
 		centro.add(new JLabel("Datos/Pagina: "));
 		centro.add(tex2);
+		
+		tex3 = new JLabel();
+		centro.add(tex3);
 		
 		JPanel sur = new JPanel();
 		but1 = new JButton("Crear");
@@ -106,14 +114,61 @@ public class DlgInicio extends JDialog {
 	public void setBut2(JButton but2) {
 		this.but2 = but2;
 	}
+	/**
+	 * 
+	 * @return
+	 */
 	public static DlgInicio getInstance() {
 		if(instance==null){
 			instance = new DlgInicio();
 		}
 		return instance;
 	}
+	/**
+	 * 
+	 * @param instance
+	 */
 	public static void setInstance(DlgInicio instance) {
 		DlgInicio.instance = instance;
 	}
-
+	/**
+	 * @return the centro
+	 */
+	public JPanel getCentro() {
+		return centro;
+	}
+	/**
+	 * @param centro the centro to set
+	 */
+	public void setCentro(JPanel centro) {
+		this.centro = centro;
+	}
+	/**
+	 * 
+	 * @param cadena
+	 * @return
+	 */
+	public boolean isNumeric(String cadena){  
+		try {  
+			Integer.parseInt(cadena);   
+			return true;  
+		} 
+		catch (NumberFormatException nfe){  
+			System.out.println("erronea ingresé de nuevo"); 
+			cadena = (" ");
+			return false; 
+		} 
+	}
+	/**
+	 * @return the tex3
+	 */
+	public JLabel getTex3() {
+		return tex3;
+	}
+	/**
+	 * @param tex3 the tex3 to set
+	 */
+	public void setTex3(JLabel tex3) {
+		this.tex3 = tex3;
+	}
 }

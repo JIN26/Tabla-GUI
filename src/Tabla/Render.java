@@ -22,7 +22,6 @@ public class Render extends DefaultTableCellRenderer{
 	 * 
 	 */
 	public Render() {
-		// TODO Auto-generated constructor stub
 	}
 	
 	@Override

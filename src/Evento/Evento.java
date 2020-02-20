@@ -6,7 +6,10 @@ package Evento;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JLabel;
+
 import Base.Base;
+import Datos.Empresa;
 import DlgInicio.DlgInicio;
 /**
  * @author CYBER-SERVER
@@ -37,8 +40,21 @@ public class Evento  implements ActionListener{
 	 */
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==DlgInicio.getInstance().getBut1()) {
-			DlgInicio.getInstance().setVisible(false);
-			Base.getInstance().setVisible(true);
+			/**
+			 * si es un numero valido 
+			 */
+			if(DlgInicio.getInstance().isNumeric(DlgInicio.getInstance().getTex2().getText())==true) {
+				Empresa em = new Empresa (DlgInicio.getInstance().getTex1().getText());
+				Empresa.setInstance(em);
+				System.out.println(em.getNombre());
+				DlgInicio.getInstance().setVisible(false);
+				Base.getInstance().setVisible(true);				
+			}else {
+				DlgInicio.getInstance().getTex3().setText("Dato erroneo intente de nuevo");
+				DlgInicio.getInstance().getCentro().updateUI();
+				DlgInicio.getInstance().getTex1().setText(" ");
+				DlgInicio.getInstance().getTex2().setText(" ");
+			}
 			
 		}
 		/*

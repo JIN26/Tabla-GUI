@@ -5,7 +5,9 @@ package Tabla;
 
 import javax.swing.JCheckBox;
 import javax.swing.table.AbstractTableModel;
-import Persona.Persona;
+
+import Datos.Empresa;
+import DlgInicio.DlgInicio;
 
 /**
  * @author CYBER-SERVER
@@ -48,7 +50,7 @@ public class Modelo extends AbstractTableModel {
 
 	@Override
 	public int getRowCount() {
-		return Persona.getInstance().size();
+		return Integer.parseInt(DlgInicio.getInstance().getTex2().getText());
 	}
 
 	@Override
@@ -56,6 +58,9 @@ public class Modelo extends AbstractTableModel {
 		if(isCellEditable(row, col)==true) {
 			JCheckBox estado = new JCheckBox(" ",true);
 			return estado;			
+		}
+		if(getColumnName(row)=="Nombre") {
+			return Empresa.getInstance().getNombre();
 		}
 		
 		return "HOLA";

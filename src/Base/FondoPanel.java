@@ -8,6 +8,9 @@ import java.io.*;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
+import Tabla.Paginador;
+import Tabla.Tabla;
+
 
 /**
  * @author CYBER-SERVER
@@ -26,10 +29,10 @@ public class FondoPanel extends JPanel {
 		setOpaque(true);
 		setBorder(new EmptyBorder(5,5,5,5));
     	setLayout(new BorderLayout(0,0));
-    	/*Tabla tabla =new Tabla();
+    	Tabla tabla =new Tabla();
     	tabla.getScrollTabla().setViewportView(Tabla.getInstance());
     	this.add(tabla.getScrollTabla());
-    	this.add(Paginador.getInstance(),BorderLayout.SOUTH);*/
+    	this.add(Paginador.getInstance(),BorderLayout.SOUTH);
 	}
 	/**
 	 * 
