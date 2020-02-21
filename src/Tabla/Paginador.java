@@ -19,6 +19,7 @@ public class Paginador extends JPanel{
 	 * 
 	 */
 	private static Paginador instance = null;
+	private int cantidad;
 	private JToggleButton[] paginados;
 	/**
 	 * 
@@ -30,14 +31,8 @@ public class Paginador extends JPanel{
 	 * 
 	 */
 	public void initComponent() {
-		paginados = new  JToggleButton[10];
-		for (int i = 0; i < 10; i++) {
-			paginados[i] = new  JToggleButton(Integer.toString(i+1));
-			paginados[i].setMargin(new Insets(1, 5, 1, 5));
-			this.add(paginados[i]);
-		}
-		this.add(new JLabel("..."));
-		this.add(paginados[paginados.length-1]);
+		this.cantidad =1;
+		actualizarPage();
 	}
 	public static Paginador getInstance() {
 		if(instance==null){
@@ -47,5 +42,30 @@ public class Paginador extends JPanel{
 	}
 	public static void setInstance(Paginador instance) {
 		Paginador.instance = instance;
+	}
+	/**
+	 * @return the cantidad
+	 */
+	public int getCantidad() {
+		return cantidad;
+	}
+	/**
+	 * @param cantidad the cantidad to set
+	 */
+	public void setCantidad(int cantidad) {
+		this.cantidad = cantidad;
+	}
+	public void actualizarPage() {
+		this.removeAll();
+		int pages = (int) Math.ceil((double) Modelo.getInstance().getCont() / 2);
+		System.out.println(cantidad);
+		paginados = new  JToggleButton[pages];
+		for (int i = 0; i < pages; i++) {
+			paginados[i] = new  JToggleButton(Integer.toString(i+1));
+			paginados[i].setMargin(new Insets(1, 5, 1, 5));
+			this.add(paginados[i]);
+		}
+		this.add(new JLabel("..."));
+		//this.add(paginados[paginados.length-1]);
 	}
 }

@@ -31,6 +31,7 @@ public class Base extends JFrame{
 		// TODO Auto-generated method stub
 		//this.setUndecorated(true);
         this.pack();
+        this.setTitle("Sistema");
         this.setSize(winWidth,winHeight);
         setResizable(false);     
         setLocationRelativeTo(null);

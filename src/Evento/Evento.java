@@ -6,11 +6,10 @@ package Evento;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JLabel;
-
 import Base.Base;
 import Datos.Empresa;
 import DlgInicio.DlgInicio;
+import Tabla.Paginador;
 /**
  * @author CYBER-SERVER
  *
@@ -43,12 +42,14 @@ public class Evento  implements ActionListener{
 			/**
 			 * si es un numero valido 
 			 */
-			if(DlgInicio.getInstance().isNumeric(DlgInicio.getInstance().getTex2().getText())==true) {
+			if(DlgInicio.getInstance().isNumeric(DlgInicio.getInstance().getTex2().getText())==true) {		
+				Paginador.getInstance().setCantidad(Integer.parseInt(DlgInicio.getInstance().getTex2().getText()));
+				Paginador.getInstance().actualizarPage();
+				Base.getInstance().setVisible(true);	
 				Empresa em = new Empresa (DlgInicio.getInstance().getTex1().getText());
 				Empresa.setInstance(em);
 				System.out.println(em.getNombre());
 				DlgInicio.getInstance().setVisible(false);
-				Base.getInstance().setVisible(true);				
 			}else {
 				DlgInicio.getInstance().getTex3().setText("Dato erroneo intente de nuevo");
 				DlgInicio.getInstance().getCentro().updateUI();

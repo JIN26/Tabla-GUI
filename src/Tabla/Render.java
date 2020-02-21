@@ -39,7 +39,6 @@ public class Render extends DefaultTableCellRenderer{
 			}
 			return btn;
 		}
-		
 		if(value instanceof JCheckBox){
 			JCheckBox ch = (JCheckBox)value;
 			ch.setHorizontalAlignment(CENTER);

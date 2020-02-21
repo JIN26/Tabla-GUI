@@ -7,7 +7,6 @@ import javax.swing.JCheckBox;
 import javax.swing.table.AbstractTableModel;
 
 import Datos.Empresa;
-import DlgInicio.DlgInicio;
 
 /**
  * @author CYBER-SERVER
@@ -18,15 +17,18 @@ public class Modelo extends AbstractTableModel {
 	/**
 	 * 
 	 */
-	private int rowM=10;
 	private int colM=5;
 	private static Modelo instance = null;
+	private int tipo;
+	private int cont;
 	@SuppressWarnings("rawtypes")
 	private Class[] types;
 	/**
 	 * 
 	 */
 	public Modelo() {
+		setCont(Empresa.getInstance().getContEmpresa());
+		tipo=0;
 		types = new Class[]{
 				java.lang.Object.class,
 				java.lang.Object.class,
@@ -45,12 +47,19 @@ public class Modelo extends AbstractTableModel {
 	}
 	@Override
 	public int getColumnCount() {
-		return colM;
+		if(tipo==2) {
+			return 4;
+		}else if(tipo==1) {
+			return 3;
+		}else {
+			return 1;
+			
+		}
 	}
 
 	@Override
 	public int getRowCount() {
-		return Integer.parseInt(DlgInicio.getInstance().getTex2().getText());
+		return cont;
 	}
 
 	@Override
@@ -66,7 +75,14 @@ public class Modelo extends AbstractTableModel {
 		return "HOLA";
 	}
 	public String getColumnName(int c) {
-		String[] title = {"Nombre","Apellido","Edad","Direccion","Estado"};
+		String[] title = new String [5];
+		if(tipo==2){
+						
+		}else if(tipo==1) {
+			
+		}else {
+			title[0] = "Nombre";
+		}
 		return title[c];
 	}
 	/**
@@ -85,20 +101,6 @@ public class Modelo extends AbstractTableModel {
     	boolean[] editable={false,false,false,false,true};
         return editable[row];
     }
-	/**
-	 * @return the rowM
-	 */
-	public int getRowM() {
-		return rowM;
-	}
-
-	/**
-	 * @param rowM the rowM to set
-	 */
-	public void setRowM(int rowM) {
-		this.rowM = rowM;
-	}
-
 	/**
 	 * @return the colM
 	 */
@@ -134,5 +136,19 @@ public class Modelo extends AbstractTableModel {
 	 */
 	public static void setInstance(Modelo instance) {
 		Modelo.instance = instance;
+	}
+
+	/**
+	 * @return the cont
+	 */
+	public int getCont() {
+		return cont;
+	}
+
+	/**
+	 * @param cont the cont to set
+	 */
+	public void setCont(int cont) {
+		this.cont = cont;
 	}
 }

@@ -2,6 +2,7 @@
  * 
  */
 package Principal;
+import Base.Base;
 import DlgInicio.DlgInicio;
 /**
  * @author CYBER-SERVER
@@ -13,7 +14,7 @@ public class Main {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		Base.getInstance();	
 		DlgInicio.getInstance().setVisible(true);
 	}
 

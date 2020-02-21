@@ -24,7 +24,6 @@ public class Tabla{
 	 * 
 	 */
 	public Tabla(){
-		// TODO Auto-generated constructor stub
 		TableModel modelo = new Modelo();
 		instance = new JTable(modelo);  
 		instance.setDefaultRenderer(instance.getColumnClass(0), new Render());

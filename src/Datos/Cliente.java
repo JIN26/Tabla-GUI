@@ -1,4 +1,5 @@
 package Datos;
+
 /**
  * 
  * @author MARIO LUZARDO
@@ -12,6 +13,7 @@ public class Cliente extends Persona{
 	 */
 	public Cliente() {
 		super();
+		
 		this.telefono_de_contacto = 0;
 	}
 	/**
